@@ -1,0 +1,24 @@
+{
+  "name": "socialnetworkapi",
+  "version": "1.0.0",
+  "description": "create delete and update thoughts ",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jahneo/socialNetworkApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jahneo/socialNetworkApi/issues"
+  },
+  "homepage": "https://github.com/Jahneo/socialNetworkApi#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  }
+}
