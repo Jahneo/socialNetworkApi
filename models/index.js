@@ -1,2 +1,3 @@
 const Thought = require('./Thought');
-module.exports = {Thought};
+const User = require('./User');
+module.exports = {Thought,User};

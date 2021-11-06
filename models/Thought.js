@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { HotModuleReplacementPlugin } = require('webpack');
+
 
 // thoughts Schema
 const ThoughtSchema = new Schema( {
@@ -12,7 +12,7 @@ const ThoughtSchema = new Schema( {
     createdAt: {
         type: Date,
         default: Date.now,
-        get:(createdAt) => HotModuleReplacementPlugin(createdAt).format('MM DD YYYY [at] hh:mm a')
+        get:(createdAt) => moment(createdAt).format('MM DD YYYY [at] hh:mm a')
     },
     username: {
         type: String,
@@ -20,7 +20,7 @@ const ThoughtSchema = new Schema( {
         required: "Username is required"
     },
 })
-//create Thought model using the ThoughtSchema
+//create Thought
 const Thought = model ('Thought', ThoughtSchema);
 //export Thought model
 module.exports = Thought;
