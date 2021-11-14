@@ -6,7 +6,7 @@ const userController = {
         User.find({})
         .select('__v')
         .sort({_id: -1})
-        .then(dbThoughtData => res.json(dbThoughtData))
+        .then(dbUserData => res.json(dbUserData))
         .catch(err => {
             console.log(err);
             res.sendStatus(400);
@@ -21,7 +21,7 @@ const userController = {
         })
         .select('__v')
         .sort({_id: -1})
-        .then(dbThoughtData => res.json(dbThoughtData))
+        .then(dbUsertData => res.json(dbUserData))
         .catch(err => {
             console.log(err);
             res.sendStatus(400);
@@ -36,24 +36,24 @@ const userController = {
     //update user by id
     updateUser({params,body}, res) {
         User.findOneAndUpdate({ _id: params.id},body , {new: true, runValidators: true })
-        .then(dbThoughtData => {
-            if(!dbThoughtData) {
+        .then(dbUserData => {
+            if(!dbUserData) {
                 res.status(404),json({message: 'No User with that ID present'});
                 return;
             }
-            res.json(dbThoughtData);
+            res.json(dbUserData);
          })
          .catch(err => res.status(400).json(err));
     },
     //delete a user
     deleteUser({params}, res) {
         User.findOneAndDelete({ _id: params.id})
-        .then(dbThoughtData => {
-            if(!dbThoughtData) {
+        .then(dbUserData => {
+            if(!dbUserData) {
                 res.status(404),json({message: 'No User with that ID found'});
                 return;
             }
-            res.json(dbThoughtData);
+            res.json(dbUserData);
          })
          .catch(err => res.status(400).json(err));
     }
