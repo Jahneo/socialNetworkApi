@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
-const { HotModuleReplacementPlugin } = require('webpack');
-
+const reactionSchema = require('./Reaction');
+//const dateFormat = require('../dateFormat');
+const moment = require('moment');
 // thoughts Schema
-const ThoughtSchema = new Schema( {
+const thoughtSchema = new Schema( {
     thoughtText: {
         type: String,
         required: true,
@@ -12,15 +13,22 @@ const ThoughtSchema = new Schema( {
     createdAt: {
         type: Date,
         default: Date.now,
-        get:(createdAt) => HotModuleReplacementPlugin(createdAt).format('MM DD YYYY [at] hh:mm a')
+        get: createdAtVal => dateFormat(createdAtVal)
+       
     },
     username: {
         type: String,
         trim: true,
         required: "Username is required"
     },
+    reaction:[reactionSchema]
+
 })
+thoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+  });
+
 //create Thought model using the ThoughtSchema
-const Thought = model ('Thought', ThoughtSchema);
+const Thought = model ('Thought', thoughtSchema);
 //export Thought model
 module.exports = Thought;

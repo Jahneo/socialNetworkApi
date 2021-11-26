@@ -4,7 +4,7 @@
   "description": "create delete and update thoughts ",
   "main": "server.js",
   "scripts": {
-    "test": "npm",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Jahneo/socialNetworkApi#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.12"
+    "moment": "^2.29.1",
+    "mongodb": "^4.2.0",
+    "mongoose": "^6.0.13"
   }
 }
